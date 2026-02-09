@@ -1,0 +1,1628 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تفاصيل المنتج - ديجيتال مارت</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #0F172A;
+            --secondary: #10B981;
+            --secondary-dark: #059669;
+            --background: #F8FAFC;
+            --text: #1F2933;
+            --muted: #6B7280;
+            --border: #E5E7EB;
+            --white: #FFFFFF;
+            --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        body {
+            font-family: 'Inter', 'Poppins', sans-serif;
+            background-color: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        /* Header Styles */
+        .header {
+            background-color: var(--primary);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--white);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo span {
+            color: var(--secondary);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-menu a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            color: var(--secondary);
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .cart-icon {
+            position: relative;
+            color: var(--white);
+            font-size: 1.25rem;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background-color: var(--secondary);
+            color: var(--white);
+            font-size: 0.75rem;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+        }
+
+        .btn {
+            padding: 0.5rem 1.25rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            font-size: 0.875rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background-color: var(--secondary);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--secondary-dark);
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--white);
+            color: var(--primary);
+        }
+
+        .btn-secondary {
+            background-color: var(--white);
+            color: var(--text);
+            border: 2px solid var(--border);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--secondary);
+            color: var(--secondary);
+        }
+
+        .btn-lg {
+            padding: 1rem 2rem;
+            font-size: 1.125rem;
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            padding: 1.5rem 0;
+            background-color: var(--white);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .breadcrumb-content {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--muted);
+            font-size: 0.875rem;
+        }
+
+        .breadcrumb a {
+            color: var(--text);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .breadcrumb a:hover {
+            color: var(--secondary);
+        }
+
+        .breadcrumb-separator {
+            color: var(--muted);
+        }
+
+        /* Product Section */
+        .product-section {
+            padding: 3rem 0;
+        }
+
+        .product-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        /* Product Gallery */
+        .product-gallery {
+            background-color: var(--white);
+            border-radius: 1rem;
+            padding: 3rem;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+            position: sticky;
+            top: 100px;
+        }
+
+        .product-image-main {
+            width: 100%;
+            aspect-ratio: 1;
+            background: linear-gradient(135deg, #e2e8f0 0%, #f1f5f9 100%);
+            border-radius: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 8rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-badge-large {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            background-color: var(--secondary);
+            color: var(--white);
+            padding: 0.5rem 1rem;
+            border-radius: 2rem;
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+
+        .product-badge-large.sale {
+            background-color: #ef4444;
+        }
+
+        .product-thumbnails {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .thumbnail {
+            width: 80px;
+            height: 80px;
+            background-color: var(--background);
+            border-radius: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .thumbnail:hover,
+        .thumbnail.active {
+            border-color: var(--secondary);
+            transform: scale(1.05);
+        }
+
+        /* Product Info */
+        .product-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .product-header {
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 1.5rem;
+        }
+
+        .product-category {
+            color: var(--secondary);
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .product-meta {
+            display: flex;
+            gap: 2rem;
+            color: var(--muted);
+            font-size: 0.875rem;
+        }
+
+        .product-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .product-rating {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .stars {
+            color: #fbbf24;
+        }
+
+        /* Price Box */
+        .price-box {
+            background-color: var(--white);
+            padding: 1.5rem;
+            border-radius: 1rem;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+        }
+
+        .price-container {
+            display: flex;
+            align-items: baseline;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .current-price {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--secondary);
+        }
+
+        .old-price {
+            font-size: 1.5rem;
+            color: var(--muted);
+            text-decoration: line-through;
+        }
+
+        .discount-badge {
+            background-color: #ef4444;
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 2rem;
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+
+        .price-note {
+            color: var(--muted);
+            font-size: 0.875rem;
+        }
+
+        /* Quantity Selector */
+        .quantity-selector {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .quantity-label {
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        .quantity-controls {
+            display: flex;
+            align-items: center;
+            border: 1px solid var(--border);
+            border-radius: 0.5rem;
+            overflow: hidden;
+        }
+
+        .quantity-btn {
+            width: 40px;
+            height: 40px;
+            background-color: var(--background);
+            border: none;
+            cursor: pointer;
+            font-size: 1.25rem;
+            color: var(--text);
+            transition: all 0.3s ease;
+        }
+
+        .quantity-btn:hover {
+            background-color: var(--secondary);
+            color: white;
+        }
+
+        .quantity-input {
+            width: 60px;
+            height: 40px;
+            border: none;
+            text-align: center;
+            font-weight: 600;
+            font-size: 1rem;
+            font-family: inherit;
+        }
+
+        /* Action Buttons */
+        .product-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .btn-buy {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+
+        .btn-buy:hover {
+            background-color: #1e293b;
+        }
+
+        /* Product Features */
+        .product-features {
+            background-color: var(--white);
+            padding: 1.5rem;
+            border-radius: 1rem;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+        }
+
+        .features-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .features-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .features-list li {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: var(--muted);
+            font-size: 0.875rem;
+        }
+
+        .feature-icon {
+            color: var(--secondary);
+            font-weight: bold;
+        }
+
+        /* Tabs Section */
+        .tabs-section {
+            margin-top: 3rem;
+        }
+
+        .tabs-header {
+            display: flex;
+            gap: 2rem;
+            border-bottom: 2px solid var(--border);
+            margin-bottom: 2rem;
+        }
+
+        .tab-btn {
+            background: none;
+            border: none;
+            padding: 1rem 0;
+            font-family: inherit;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--muted);
+            cursor: pointer;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .tab-btn.active {
+            color: var(--secondary);
+        }
+
+        .tab-btn.active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background-color: var(--secondary);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .tab-panel {
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+        }
+
+        .description-text {
+            color: var(--muted);
+            line-height: 1.8;
+            font-size: 1rem;
+        }
+
+        .description-text p {
+            margin-bottom: 1rem;
+        }
+
+        /* Related Products */
+        .related-section {
+            padding: 4rem 0;
+            background-color: var(--white);
+            margin-top: 4rem;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .product-card {
+            background-color: var(--background);
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            border: 1px solid var(--border);
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .product-card-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #e2e8f0 0%, #f1f5f9 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            position: relative;
+        }
+
+        .product-card-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background-color: var(--secondary);
+            color: var(--white);
+            padding: 0.25rem 0.75rem;
+            border-radius: 2rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .product-card-content {
+            padding: 1.5rem;
+        }
+
+        .product-card-category {
+            color: var(--secondary);
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-card-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .product-card-title:hover {
+            color: var(--secondary);
+        }
+
+        .product-card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 1rem;
+        }
+
+        .product-card-price {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--secondary);
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-brand h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-brand h3 span {
+            color: var(--secondary);
+        }
+
+        .footer-brand p {
+            color: #94a3b8;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background-color: var(--secondary);
+            transform: translateY(-3px);
+        }
+
+        .footer-links h4 {
+            font-size: 1.125rem;
+            margin-bottom: 1.5rem;
+            color: var(--white);
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            color: #94a3b8;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 2rem;
+            text-align: center;
+            color: #94a3b8;
+            font-size: 0.875rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .product-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .product-gallery {
+                position: static;
+            }
+
+            .product-title {
+                font-size: 1.75rem;
+            }
+
+            .current-price {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .tabs-header {
+                gap: 1rem;
+            }
+
+            .tab-btn {
+                font-size: 0.875rem;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Loading State */
+        .loading-state {
+            text-align: center;
+            padding: 4rem;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 4px solid var(--border);
+            border-top-color: var(--secondary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 1rem;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">
+                    <span>◆</span> ديجيتال مارت
+                </a>
+                
+                <nav>
+                    <ul class="nav-menu">
+                        <li><a href="index.html">الرئيسية</a></li>
+                        <li><a href="store.html">المتجر</a></li>
+                        <li><a href="index.html#categories">التصنيفات</a></li>
+                        <li><a href="index.html#featured">المنتجات</a></li>
+                    </ul>
+                </nav>
+
+                <div class="header-actions">
+                    <a href="cart.html" class="cart-icon">
+                        🛒
+                        <span class="cart-count" id="cartCount">0</span>
+                    </a>
+                    <a href="login.html" class="btn btn-outline">تسجيل الدخول</a>
+                    <a href="register.html" class="btn btn-primary">إنشاء حساب</a>
+                    <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <div class="container">
+            <div class="breadcrumb-content">
+                <a href="index.html">الرئيسية</a>
+                <span class="breadcrumb-separator">›</span>
+                <a href="store.html">المتجر</a>
+                <span class="breadcrumb-separator">›</span>
+                <span id="breadcrumbCategory">التصنيف</span>
+                <span class="breadcrumb-separator">›</span>
+                <span id="breadcrumbProduct">اسم المنتج</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Product Section -->
+    <section class="product-section">
+        <div class="container">
+            <div class="product-container" id="productContainer">
+                <!-- Loading State -->
+                <div class="loading-state" style="grid-column: 1 / -1;">
+                    <div class="spinner"></div>
+                    <p>جاري تحميل المنتج...</p>
+                </div>
+            </div>
+
+            <!-- Tabs Section -->
+            <div class="tabs-section">
+                <div class="tabs-header">
+                    <button class="tab-btn active" onclick="switchTab('description')">📄 الوصف</button>
+                    <button class="tab-btn" onclick="switchTab('specs')">⚙️ المواصفات</button>
+                    <button class="tab-btn" onclick="switchTab('reviews')">⭐ التقييمات</button>
+                    <button class="tab-btn" onclick="switchTab('delivery')">🚚 التوصيل</button>
+                </div>
+
+                <div id="description" class="tab-content active">
+                    <div class="tab-panel">
+                        <div class="description-text" id="descriptionText">
+                            <!-- Description will be loaded here -->
+                        </div>
+                    </div>
+                </div>
+
+                <div id="specs" class="tab-content">
+                    <div class="tab-panel">
+                        <div class="description-text">
+                            <h3 style="margin-bottom: 1rem; color: var(--text);">مواصفات المنتج:</h3>
+                            <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.75rem;" id="specsList">
+                                <!-- Specs will be loaded here -->
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="reviews" class="tab-content">
+                    <div class="tab-panel">
+                        <div class="description-text">
+                            <div style="display: flex; align-items: center; gap: 2rem; margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 1px solid var(--border);">
+                                <div style="text-align: center;">
+                                    <div style="font-size: 3rem; font-weight: 700; color: var(--secondary);">4.8</div>
+                                    <div class="stars" style="font-size: 1.25rem;">⭐⭐⭐⭐⭐</div>
+                                    <div style="color: var(--muted); font-size: 0.875rem;">128 تقييم</div>
+                                </div>
+                                <div style="flex: 1;">
+                                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 0.5rem;">
+                                        <span style="width: 60px;">5 نجوم</span>
+                                        <div style="flex: 1; height: 8px; background-color: var(--border); border-radius: 4px; overflow: hidden;">
+                                            <div style="width: 85%; height: 100%; background-color: var(--secondary);"></div>
+                                        </div>
+                                        <span style="width: 40px; color: var(--muted);">85%</span>
+                                    </div>
+                                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 0.5rem;">
+                                        <span style="width: 60px;">4 نجوم</span>
+                                        <div style="flex: 1; height: 8px; background-color: var(--border); border-radius: 4px; overflow: hidden;">
+                                            <div style="width: 10%; height: 100%; background-color: var(--secondary);"></div>
+                                        </div>
+                                        <span style="width: 40px; color: var(--muted);">10%</span>
+                                    </div>
+                                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 0.5rem;">
+                                        <span style="width: 60px;">3 نجوم</span>
+                                        <div style="flex: 1; height: 8px; background-color: var(--border); border-radius: 4px; overflow: hidden;">
+                                            <div style="width: 3%; height: 100%; background-color: var(--secondary);"></div>
+                                        </div>
+                                        <span style="width: 40px; color: var(--muted);">3%</span>
+                                    </div>
+                                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 0.5rem;">
+                                        <span style="width: 60px;">2 نجمة</span>
+                                        <div style="flex: 1; height: 8px; background-color: var(--border); border-radius: 4px; overflow: hidden;">
+                                            <div style="width: 1%; height: 100%; background-color: var(--secondary);"></div>
+                                        </div>
+                                        <span style="width: 40px; color: var(--muted);">1%</span>
+                                    </div>
+                                    <div style="display: flex; align-items: center; gap: 1rem;">
+                                        <span style="width: 60px;">1 نجمة</span>
+                                        <div style="flex: 1; height: 8px; background-color: var(--border); border-radius: 4px; overflow: hidden;">
+                                            <div style="width: 1%; height: 100%; background-color: var(--secondary);"></div>
+                                        </div>
+                                        <span style="width: 40px; color: var(--muted);">1%</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Sample Reviews -->
+                            <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+                                <div style="padding: 1.5rem; background-color: var(--background); border-radius: 0.5rem;">
+                                    <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                                        <div style="font-weight: 600;">أحمد محمد</div>
+                                        <div class="stars">⭐⭐⭐⭐⭐</div>
+                                    </div>
+                                    <div style="color: var(--muted); font-size: 0.875rem; margin-bottom: 0.5rem;">منذ 3 أيام</div>
+                                    <p>منتج ممتاز وتوصيل فوري، أنصح به بشدة!</p>
+                                </div>
+                                <div style="padding: 1.5rem; background-color: var(--background); border-radius: 0.5rem;">
+                                    <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                                        <div style="font-weight: 600;">سارة عبدالله</div>
+                                        <div class="stars">⭐⭐⭐⭐⭐</div>
+                                    </div>
+                                    <div style="color: var(--muted); font-size: 0.875rem; margin-bottom: 0.5rem;">منذ أسبوع</div>
+                                    <p>تجربة شراء رائعة، المنتج يعمل بشكل ممتاز والدعم الفني سريع في الرد.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="delivery" class="tab-content">
+                    <div class="tab-panel">
+                        <div class="description-text">
+                            <h3 style="margin-bottom: 1rem; color: var(--text);">معلومات التوصيل:</h3>
+                            <div style="display: flex; flex-direction: column; gap: 1rem;">
+                                <div style="display: flex; align-items: center; gap: 1rem; padding: 1rem; background-color: var(--background); border-radius: 0.5rem;">
+                                    <span style="font-size: 2rem;">⚡</span>
+                                    <div>
+                                        <div style="font-weight: 600;">توصيل فوري</div>
+                                        <div style="color: var(--muted); font-size: 0.875rem;">استلام المنتج مباشرة بعد الدفع على بريدك الإلكتروني</div>
+                                    </div>
+                                </div>
+                                <div style="display: flex; align-items: center; gap: 1rem; padding: 1rem; background-color: var(--background); border-radius: 0.5rem;">
+                                    <span style="font-size: 2rem;">📧</span>
+                                    <div>
+                                        <div style="font-weight: 600;">إرسال للبريد الإلكتروني</div>
+                                        <div style="color: var(--muted); font-size: 0.875rem;">تفاصيل المنتج ترسل مباشرة للبريد المسجل في حسابك</div>
+                                    </div>
+                                </div>
+                                <div style="display: flex; align-items: center; gap: 1rem; padding: 1rem; background-color: var(--background); border-radius: 0.5rem;">
+                                    <span style="font-size: 2rem;">🛡️</span>
+                                    <div>
+                                        <div style="font-weight: 600;">ضمان 100%</div>
+                                        <div style="color: var(--muted); font-size: 0.875rem;">استعادة المال كاملاً في حال عدم عمل المنتج</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Related Products -->
+    <section class="related-section">
+        <div class="container">
+            <h2 class="section-title">منتجات مشابهة قد تعجبك</h2>
+            <div class="products-grid" id="relatedProducts">
+                <!-- Related products will be loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3><span>◆</span> ديجيتال مارت</h3>
+                    <p>
+                        منصتك الموثوقة لشراء المنتجات الرقمية بأمان وسهولة. 
+                        نقدم لك أفضل البرامج، الدورات، والاشتراكات بأسعار تنافسية.
+                    </p>
+                    <div class="footer-social">
+                        <a href="#" class="social-link">📘</a>
+                        <a href="#" class="social-link">🐦</a>
+                        <a href="#" class="social-link">📸</a>
+                        <a href="#" class="social-link">💬</a>
+                    </div>
+                </div>
+
+                <div class="footer-links">
+                    <h4>روابط سريعة</h4>
+                    <ul>
+                        <li><a href="index.html">الرئيسية</a></li>
+                        <li><a href="store.html">المتجر</a></li>
+                        <li><a href="index.html#categories">التصنيفات</a></li>
+                        <li><a href="index.html#featured">المنتجات المميزة</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h4>حسابي</h4>
+                    <ul>
+                        <li><a href="login.html">تسجيل الدخول</a></li>
+                        <li><a href="register.html">إنشاء حساب</a></li>
+                        <li><a href="cart.html">سلة المشتريات</a></li>
+                        <li><a href="profile.html">حسابي</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h4>الدعم</h4>
+                    <ul>
+                        <li><a href="#">مركز المساعدة</a></li>
+                        <li><a href="#">سياسة الإرجاع</a></li>
+                        <li><a href="#">الشروط والأحكام</a></li>
+                        <li><a href="#">تواصل معنا</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2024 ديجيتال مارت. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+        <script>
+        // بيانات المنتجات (نفسها من الصفحات السابقة)
+        const productsData = [
+            {
+                id: 1,
+                name: "اشتراك Canva Pro سنوي",
+                category: "subscriptions",
+                categoryName: "اشتراكات",
+                price: 29.99,
+                oldPrice: 119.99,
+                description: "اشتراك سنوي كامل لـ Canva Pro مع جميع المميزات. احصل على تصاميم احترافية غير محدودة، أكثر من 100 مليون صورة وفيديو مخزن، وأدوات ذكاء اصطناعي متقدمة للتصميم.",
+                badge: "الأكثر مبيعاً",
+                icon: "🎨",
+                inStock: true,
+                specs: [
+                    "وصول غير محدود للقوالب والتصاميم",
+                    "أكثر من 100 مليون صورة وفيديو",
+                    "أدوات ذكاء اصطناعي للتصميم",
+                    "تصدير بصيغ متعددة (PNG, PDF, SVG)",
+                    "دعم فني على مدار الساعة",
+                    "تحديثات مجانية طوال فترة الاشتراك"
+                ]
+            },
+            {
+                id: 2,
+                name: "Microsoft Office 365",
+                category: "software",
+                categoryName: "برامج",
+                price: 49.99,
+                oldPrice: 99.99,
+                description: "ترخيص مدى الحياة لـ Office 365 مع التحديثات المستمرة. يشمل Word, Excel, PowerPoint, Outlook, Teams وجميع تطبيقات Office.",
+                badge: "خصم 50%",
+                icon: "📦",
+                inStock: true,
+                specs: [
+                    "جميع تطبيقات Office (Word, Excel, PowerPoint, Outlook)",
+                    "1 تيرابايت تخزين سحابي OneDrive",
+                    "تحديثات مجانية مدى الحياة",
+                    "يعمل على 5 أجهزة في نفس الوقت",
+                    "دعم فني من Microsoft",
+                    "حماية وأمان متقدم للبيانات"
+                ]
+            },
+            {
+                id: 3,
+                name: "دورة تطوير الويب الكاملة",
+                category: "courses",
+                categoryName: "دورات",
+                price: 19.99,
+                oldPrice: 89.99,
+                description: "تعلم HTML, CSS, JavaScript, React من الصفر حتى الاحتراف. الدورة تشمل أكثر من 50 ساعة فيديو، مشاريع عملية، وشهادة إتمام.",
+                badge: "جديد",
+                icon: "💻",
+                inStock: true,
+                specs: [
+                    "50+ ساعة محتوى فيديو عالي الجودة",
+                    "مشاريع عملية واقعية",
+                    "شهادة إتمام معتمدة",
+                    "دعم مدرس مباشر",
+                    "وصول مدى الحياة للمحتوى",
+                    "تحديثات مجانية للدورة"
+                ]
+            },
+            {
+                id: 4,
+                name: "Netflix Premium شهر",
+                category: "subscriptions",
+                categoryName: "اشتراكات",
+                price: 8.99,
+                oldPrice: 15.99,
+                description: "حساب Netflix Premium لمدة شهر كامل بجودة 4K Ultra HD. شاهد على 4 شاشات في نفس الوقت مع جميع الميزات المميزة.",
+                badge: null,
+                icon: "🎬",
+                inStock: true,
+                specs: [
+                    "جودة 4K Ultra HD",
+                    "مشاهدة على 4 أجهزة في نفس الوقت",
+                    "تحميل على 6 أجهزة",
+                    "صوت Dolby Atmos",
+                    "بدون إعلانات",
+                    "محتوى حصري أصلي"
+                ]
+            },
+            {
+                id: 5,
+                name: "Spotify Premium 3 أشهر",
+                category: "subscriptions",
+                categoryName: "اشتراكات",
+                price: 12.99,
+                oldPrice: 29.99,
+                description: "اشتراك Spotify Premium بدون إعلانات لمدة 3 أشهر. استمع للموسيقى بجودة عالية، حمل الأغاني للاستماع بدون إنترنت.",
+                badge: "عرض",
+                icon: "🎵",
+                inStock: true,
+                specs: [
+                    "استماع بدون إعلانات",
+                    "جودة صوت عالية (320kbps)",
+                    "تحميل غير محدود للأغاني",
+                    "تخطي غير محدود",
+                    "تشغيل عشوائي",
+                    "6 حسابات في Family Plan"
+                ]
+            },
+            {
+                id: 6,
+                name: "Adobe Creative Cloud",
+                category: "software",
+                categoryName: "برامج",
+                price: 39.99,
+                oldPrice: 79.99,
+                description: "جميع برامج Adobe للمصممين والمبدعين. يشمل Photoshop, Illustrator, Premiere Pro, After Effects, و20+ تطبيق إبداعي.",
+                badge: "احترافي",
+                icon: "🎨",
+                inStock: true,
+                specs: [
+                    "20+ تطبيق Adobe (Photoshop, Illustrator, Premiere)",
+                    "100GB تخزين سحابي",
+                    "Adobe Fonts (أكثر من 20,000 خط)",
+                    "Adobe Portfolio لإنشاء موقع شخصي",
+                    "تحديثات فورية للإصدارات الجديدة",
+                    "دعم فني متخصص"
+                ]
+            },
+            {
+                id: 7,
+                name: "1000+ أيقونة UI احترافية",
+                category: "assets",
+                categoryName: "تصاميم",
+                price: 9.99,
+                oldPrice: 49.99,
+                description: "مجموعة ضخمة من الأيقونات للمصممين والمطورين. جميع الأيقونات بصيغ SVG, PNG, Figma, Sketch مع إمكانية التعديل.",
+                badge: null,
+                icon: "🎯",
+                inStock: true,
+                specs: [
+                    "1000+ أيقونة فريدة",
+                    "صيغ متعددة (SVG, PNG, Figma, Sketch)",
+                    "قابلة للتعديل والتخصيص",
+                    "تصنيفات متنوعة (تجارة، تقنية، تواصل اجتماعي)",
+                    "تحديثات مجانية",
+                    "ترخيص تجاري كامل"
+                ]
+            },
+            {
+                id: 8,
+                name: "دورة الذكاء الاصطناعي",
+                category: "courses",
+                categoryName: "دورات",
+                price: 24.99,
+                oldPrice: 129.99,
+                description: "تعلم ChatGPT, Midjourney, وأدوات الذكاء الاصطناعي. الدورة تشمل استخدامات عملية للذكاء الاصطناعي في العمل والإنتاجية.",
+                badge: "رائج",
+                icon: "🤖",
+                inStock: true,
+                specs: [
+                    "30+ ساعة محتوى تدريبي",
+                    "تعلم ChatGPT المتقدم",
+                    "تصميم بالذكاء الاصطناعي (Midjourney, DALL-E)",
+                    "أتمتة المهام بالذكاء الاصطناعي",
+                    "أدوات إنتاجية AI",
+                    "شهادة إتمام معتمدة"
+                ]
+            },
+            {
+                id: 9,
+                name: "اشتراك ChatGPT Plus",
+                category: "subscriptions",
+                categoryName: "اشتراكات",
+                price: 20.00,
+                oldPrice: null,
+                description: "اشتراك شهري في ChatGPT Plus مع GPT-4. وصول أسرع، ميزات متقدمة، وقدرة على استخدام الإضافات.",
+                badge: "مميز",
+                icon: "💬",
+                inStock: true,
+                specs: [
+                    "وصول لـ GPT-4",
+                    "استجابة أسرع حتى في أوقات الذروة",
+                    "أولوية الوصول للميزات الجديدة",
+                    "إضافات (Plugins) متنوعة",
+                    "تحليل الصور",
+                    "توليد الكود المتقدم"
+                ]
+            },
+            {
+                id: 10,
+                name: "قالب موقع إلكتروني متجاوب",
+                category: "assets",
+                categoryName: "تصاميم",
+                price: 15.99,
+                oldPrice: 45.00,
+                description: "قالب HTML/CSS جاهز لموقع تجاري احترافي. تصميم عصري، متجاوب 100%، وسهل التخصيص.",
+                badge: "جديد",
+                icon: "🌐",
+                inStock: true,
+                specs: [
+                    "تصميم عصري واحترافي",
+                    "متجاوب 100% (Mobile, Tablet, Desktop)",
+                    "كود نظيف ومنظم",
+                    "سهل التخصيص والتعديل",
+                    "توثيق شامل",
+                    "دعم فني لمدة شهر"
+                ]
+            },
+            {
+                id: 11,
+                name: "دورة التسويق الرقمي",
+                category: "courses",
+                categoryName: "دورات",
+                price: 34.99,
+                oldPrice: 149.99,
+                description: "تعلم إدارة الحملات الإعلانية على وسائل التواصل. Facebook Ads, Google Ads, Instagram Marketing, SEO.",
+                badge: "الأكثر مبيعاً",
+                icon: "📈",
+                inStock: true,
+                specs: [
+                    "40+ ساعة تدريب عملي",
+                    "إعلانات Facebook و Instagram",
+                    "إعلانات Google Ads",
+                    "SEO وتحسين محركات البحث",
+                    "تحليل البيانات والتقارير",
+                    "دراسات حالة واقعية"
+                ]
+            },
+            {
+                id: 12,
+                name: "Windows 11 Pro",
+                category: "software",
+                categoryName: "برامج",
+                price: 25.00,
+                oldPrice: 199.00,
+                description: "ترخيص أصلي لـ Windows 11 Pro مدى الحياة. تفعيل رقمي فوري، تحديثات مجانية، وجميع ميزات النسخة الاحترافية.",
+                badge: "خصم كبير",
+                icon: "🪟",
+                inStock: true,
+                specs: [
+                    "ترخيص أصلي 100%",
+                    "تفعيل رقمي فوري",
+                    "تحديثات Windows المجانية",
+                    "BitLocker لتشفير القرص",
+                    "Remote Desktop",
+                    "انضمام للمجال (Domain Join)"
+                ]
+            }
+        ];
+
+        // إدارة السلة
+        class CartManager {
+            constructor() {
+                this.cart = this.getCart();
+                this.updateCartCount();
+            }
+
+            getCart() {
+                const cart = localStorage.getItem('digitalMartCart');
+                return cart ? JSON.parse(cart) : [];
+            }
+
+            saveCart() {
+                localStorage.setItem('digitalMartCart', JSON.stringify(this.cart));
+                this.updateCartCount();
+            }
+
+            addToCart(product, quantity = 1) {
+                const existingItem = this.cart.find(item => item.id === product.id);
+                
+                if (existingItem) {
+                    existingItem.quantity += quantity;
+                } else {
+                    this.cart.push({
+                        ...product,
+                        quantity: quantity
+                    });
+                }
+                
+                this.saveCart();
+                this.showNotification(`تمت إضافة ${quantity} ${quantity > 1 ? 'وحدات' : 'وحدة'} إلى السلة! 🛒`);
+            }
+
+            updateCartCount() {
+                const cartCount = document.getElementById('cartCount');
+                if (cartCount) {
+                    const count = this.cart.reduce((sum, item) => sum + item.quantity, 0);
+                    cartCount.textContent = count;
+                    cartCount.style.display = count > 0 ? 'flex' : 'none';
+                }
+            }
+
+            showNotification(message) {
+                const notification = document.createElement('div');
+                notification.style.cssText = `
+                    position: fixed;
+                    top: 100px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    background-color: var(--secondary);
+                    color: white;
+                    padding: 1rem 2rem;
+                    border-radius: 0.5rem;
+                    box-shadow: var(--shadow-lg);
+                    z-index: 9999;
+                    font-weight: 600;
+                    animation: slideDown 0.3s ease;
+                `;
+                notification.textContent = message;
+                document.body.appendChild(notification);
+                
+                setTimeout(() => {
+                    notification.style.animation = 'slideUp 0.3s ease';
+                    setTimeout(() => notification.remove(), 300);
+                }, 3000);
+            }
+        }
+
+        const cart = new CartManager();
+
+        // المتغيرات العامة
+        let currentProduct = null;
+        let currentQuantity = 1;
+
+        // تحميل المنتج
+        function loadProduct() {
+            const productId = localStorage.getItem('selectedProduct');
+            
+            if (!productId) {
+                window.location.href = 'store.html';
+                return;
+            }
+
+            currentProduct = productsData.find(p => p.id === parseInt(productId));
+            
+            if (!currentProduct) {
+                window.location.href = 'store.html';
+                return;
+            }
+
+            renderProduct();
+            renderRelatedProducts();
+        }
+
+        // عرض المنتج
+        function renderProduct() {
+            const container = document.getElementById('productContainer');
+            
+            // حساب نسبة الخصم
+            let discountPercent = '';
+            if (currentProduct.oldPrice) {
+                const discount = Math.round(((currentProduct.oldPrice - currentProduct.price) / currentProduct.oldPrice) * 100);
+                discountPercent = `<span class="discount-badge">خصم ${discount}%</span>`;
+            }
+
+            container.innerHTML = `
+                <!-- Product Gallery -->
+                <div class="product-gallery">
+                    <div class="product-image-main">
+                        ${currentProduct.icon}
+                        ${currentProduct.badge ? `<span class="product-badge-large ${currentProduct.oldPrice ? 'sale' : ''}">${currentProduct.badge}</span>` : ''}
+                    </div>
+                    <div class="product-thumbnails">
+                        <div class="thumbnail active">${currentProduct.icon}</div>
+                        <div class="thumbnail">📦</div>
+                        <div class="thumbnail">💎</div>
+                        <div class="thumbnail">⭐</div>
+                    </div>
+                </div>
+
+                <!-- Product Info -->
+                <div class="product-info">
+                    <div class="product-header">
+                        <div class="product-category">${currentProduct.categoryName}</div>
+                        <h1 class="product-title">${currentProduct.name}</h1>
+                        <div class="product-meta">
+                            <span class="product-rating">
+                                <span class="stars">⭐⭐⭐⭐⭐</span>
+                                <span>(128 تقييم)</span>
+                            </span>
+                            <span>✓ متوفر في المخزن</span>
+                            <span>🔄 ضمان استعادة المال</span>
+                        </div>
+                    </div>
+
+                    <div class="price-box">
+                        <div class="price-container">
+                            <span class="current-price">$${currentProduct.price}</span>
+                            ${currentProduct.oldPrice ? `<span class="old-price">$${currentProduct.oldPrice}</span>` : ''}
+                            ${discountPercent}
+                        </div>
+                        <div class="price-note">السعر شامل الضريبة • توصيل فوري مجاني</div>
+                    </div>
+
+                    <div class="quantity-selector">
+                        <span class="quantity-label">الكمية:</span>
+                        <div class="quantity-controls">
+                            <button class="quantity-btn" onclick="updateQuantity(-1)">−</button>
+                            <input type="number" class="quantity-input" id="quantityInput" value="1" min="1" max="10" readonly>
+                            <button class="quantity-btn" onclick="updateQuantity(1)">+</button>
+                        </div>
+                    </div>
+
+                    <div class="product-actions">
+                        <button class="btn btn-primary btn-lg" onclick="addToCart()">
+                            🛒 أضف إلى السلة
+                        </button>
+                        <button class="btn btn-buy btn-lg" onclick="buyNow()">
+                            ⚡ اشترِ الآن
+                        </button>
+                    </div>
+
+                    <div class="product-features">
+                        <h3 class="features-title">✨ لماذا تختار هذا المنتج؟</h3>
+                        <ul class="features-list">
+                            <li><span class="feature-icon">✓</span> توصيل فوري على بريدك الإلكتروني</li>
+                            <li><span class="feature-icon">✓</span> ضمان استعادة المال 100%</li>
+                            <li><span class="feature-icon">✓</span> دعم فني على مدار الساعة</li>
+                            <li><span class="feature-icon">✓</span> منتج أصلي ومضمون</li>
+                        </ul>
+                    </div>
+                </div>
+            `;
+
+            // تحديث Breadcrumb
+            document.getElementById('breadcrumbCategory').textContent = currentProduct.categoryName;
+            document.getElementById('breadcrumbProduct').textContent = currentProduct.name;
+
+            // تحديث الوصف
+            document.getElementById('descriptionText').innerHTML = `
+                <p>${currentProduct.description}</p>
+                <p>هذا المنتج الرقمي يأتي مع ضمان كامل من ديجيتال مارت. نضمن لك جودة المنتج وعمله بشكل صحيح، وإلا استرداد كامل المبلغ.</p>
+                <p>بمجرد إتمام عملية الشراء، ستصلك تفاصيل المنتج مباشرة على بريدك الإلكتروني المسجل في حسابك.</p>
+            `;
+
+            // تحديث المواصفات
+            const specsList = document.getElementById('specsList');
+            specsList.innerHTML = currentProduct.specs.map(spec => `
+                <li style="display: flex; align-items: center; gap: 0.75rem; padding: 0.5rem; background-color: var(--background); border-radius: 0.5rem;">
+                    <span style="color: var(--secondary); font-weight: bold;">✓</span>
+                    <span>${spec}</span>
+                </li>
+            `).join('');
+        }
+
+        // تحديث الكمية
+        function updateQuantity(change) {
+            const input = document.getElementById('quantityInput');
+            let newValue = parseInt(input.value) + change;
+            
+            if (newValue < 1) newValue = 1;
+            if (newValue > 10) newValue = 10;
+            
+            input.value = newValue;
+            currentQuantity = newValue;
+        }
+
+        // إضافة للسلة
+        function addToCart() {
+            if (currentProduct) {
+                cart.addToCart(currentProduct, currentQuantity);
+            }
+        }
+
+        // شراء الآن
+        function buyNow() {
+            if (currentProduct) {
+                cart.addToCart(currentProduct, currentQuantity);
+                window.location.href = 'cart.html';
+            }
+        }
+
+        // تبديل التبويبات
+        function switchTab(tabName) {
+            // إخفاء جميع المحتويات
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            // إزالة النشاط من جميع الأزرار
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // إظهار المحتوى المحدد
+            document.getElementById(tabName).classList.add('active');
+            
+            // تفعيل الزر المحدد
+            event.target.classList.add('active');
+        }
+
+        // عرض المنتجات المشابهة
+        function renderRelatedProducts() {
+            const container = document.getElementById('relatedProducts');
+            
+            // اختيار منتجات من نفس التصنيف (ما عدا المنتج الحالي)
+            const related = productsData
+                .filter(p => p.category === currentProduct.category && p.id !== currentProduct.id)
+                .slice(0, 4);
+            
+            // إذا لم يوجد منتجات كافية في نفس التصنيف، نضيف من تصنيفات أخرى
+            if (related.length < 4) {
+                const otherProducts = productsData
+                    .filter(p => p.id !== currentProduct.id && !related.includes(p))
+                    .slice(0, 4 - related.length);
+                related.push(...otherProducts);
+            }
+
+            container.innerHTML = related.map(product => `
+                <div class="product-card" onclick="goToProduct(${product.id})">
+                    <div class="product-card-image">
+                        ${product.icon}
+                        ${product.badge ? `<span class="product-card-badge">${product.badge}</span>` : ''}
+                    </div>
+                    <div class="product-card-content">
+                        <div class="product-card-category">${product.categoryName}</div>
+                        <h3 class="product-card-title">${product.name}</h3>
+                        <div class="product-card-footer">
+                            <span class="product-card-price">$${product.price}</span>
+                            <button class="btn btn-primary btn-sm" onclick="event.stopPropagation(); quickAddToCart(${product.id})">
+                                أضف للسلة
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // الانتقال لمنتج آخر
+        function goToProduct(productId) {
+            localStorage.setItem('selectedProduct', productId);
+            window.location.reload();
+        }
+
+        // إضافة سريعة للسلة
+        function quickAddToCart(productId) {
+            const product = productsData.find(p => p.id === productId);
+            if (product) {
+                cart.addToCart(product);
+            }
+        }
+
+        // تبديل قائمة الجوال
+        function toggleMobileMenu() {
+            const navMenu = document.querySelector('.nav-menu');
+            navMenu.style.display = navMenu.style.display === 'flex' ? 'none' : 'flex';
+            if (navMenu.style.display === 'flex') {
+                navMenu.style.position = 'absolute';
+                navMenu.style.top = '100%';
+                navMenu.style.left = '0';
+                navMenu.style.right = '0';
+                navMenu.style.backgroundColor = 'var(--primary)';
+                navMenu.style.flexDirection = 'column';
+                navMenu.style.padding = '1rem';
+                navMenu.style.gap = '1rem';
+                navMenu.style.zIndex = '999';
+            }
+        }
+
+        // CSS Animations
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideDown {
+                from { opacity: 0; transform: translate(-50%, -20px); }
+                to { opacity: 1; transform: translate(-50%, 0); }
+            }
+            @keyframes slideUp {
+                from { opacity: 1; transform: translate(-50%, 0); }
+                to { opacity: 0; transform: translate(-50%, -20px); }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // تهيئة الصفحة
+        document.addEventListener('DOMContentLoaded', function() {
+            loadProduct();
+        });
+    </script>
+</body>
+</html>
